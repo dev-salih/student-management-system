@@ -26,6 +26,19 @@ db.connect((err)=>{
     console.log(err);
   } else {
     console.log("Connected to MySQL");
+
+    const createTableQuery = `
+      CREATE TABLE IF NOT EXISTS students (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        full_name VARCHAR(100),
+        email VARCHAR(100),
+        phone VARCHAR(20),
+        department VARCHAR(100),
+        address TEXT,
+        gender VARCHAR(20)
+      )
+    `;
+
   }
 });
 
