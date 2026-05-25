@@ -27,6 +27,7 @@ db.connect((err)=>{
   } else {
     console.log("Connected to MySQL");
 
+    // Table Creation Query
     const createTableQuery = `
       CREATE TABLE IF NOT EXISTS students (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -38,6 +39,16 @@ db.connect((err)=>{
         gender VARCHAR(20)
       )
     `;
+
+    // Execute the Query
+    db.query(createTableQuery, (err, result)=>{
+      if (err) {
+        console.log("Table creation failed");,
+        console.log(err);
+      } else {
+        console.log("Students table created successfully");
+      }
+    });
 
   }
 });
