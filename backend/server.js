@@ -57,6 +57,9 @@ app.post("/students", (req, res) => {
     // Store Data into Variables(using "object destructuring")
     const { full_name, email, phone, department, address, gender } = req.body;
 
+    // SQL INSERT Query
+    const insertSql = `INSERT INTO students (full_name, email, phone, department, address, gender) VALUES(?, ?, ?, ?, ?, ?)`;
+
 
 });
 
