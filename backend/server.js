@@ -16,11 +16,11 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "student_management"
+  database: "student_management",
 });
 
 // CONNECT DATABASE
-db.connect((err)=>{
+db.connect((err) => {
   if (err) {
     console.log("Connection failed");
     console.log(err);
@@ -41,20 +41,23 @@ db.connect((err)=>{
     `;
 
     // Execute the Query
-    db.query(createTableQuery, (err, result)=>{
+    db.query(createTableQuery, (err, result) => {
       if (err) {
-        console.log("Table creation failed");,
+        console.log("Table creation failed");
         console.log(err);
       } else {
         console.log("Students table created successfully");
       }
     });
-
   }
 });
 
+// INSERT API
+app.post("/students", (req, res) => {
+  console.log(req.body);
 
-
+  res.send("API working");
+});
 
 // START SERVER
 app.listen(5000, () => {
