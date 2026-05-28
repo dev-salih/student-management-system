@@ -60,7 +60,19 @@ app.post("/students", (req, res) => {
     // SQL INSERT Query
     const insertSql = `INSERT INTO students (full_name, email, phone, department, address, gender) VALUES(?, ?, ?, ?, ?, ?)`;
 
-
+    // Execute INSERT Query
+    db.query(
+        insertSql,
+        [full_name, email, phone, department, address, gender],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Student inserted successfully");
+                res.send("Student inserted successfully");
+            }
+        },
+    );
 });
 
 // START SERVER
